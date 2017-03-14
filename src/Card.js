@@ -28,7 +28,8 @@ class Card extends Component {
 
     this.setState({
       title: data.title,
-      description: data.description
+      description: data.description,
+      selectItem: data.selectItem
     });    
   }
 
@@ -40,6 +41,7 @@ class Card extends Component {
           <div className=""><button onClick={() => this.triggerModal(true)}>Edit Card</button></div>
           <div><p>{this.state.title}</p></div>
           <div><p>{this.state.description}</p></div>
+          <div><p>{this.state.selectItem}</p></div>
         </div>
 
         <div>
