@@ -77,8 +77,7 @@ export default class Modal extends Component {
             </div>
           </form> 
 
-          <button 
-            className="pull-right btn btn-success" onClick={() => this.props.triggerModal(false)}>Close</button>
+          <button className="pull-right btn btn-success" onClick={() => this.props.triggerModal(false)}>Close</button>
         </ReactModal>
       </div>
     );
