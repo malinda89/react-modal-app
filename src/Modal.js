@@ -5,13 +5,7 @@ export default class Modal extends Component {
 
   constructor(props) {
     super(props);
-
     this.saveCard = this.saveCard.bind(this);
-
-    this.state = {
-      isModalOpen: true,
-      id: props.id
-    };
   }
 
   get modalStyles() {
@@ -51,16 +45,12 @@ export default class Modal extends Component {
     }
 
     this.props.updateCard(data);
-    
-    this.setState({
-      isModalOpen: false
-    });
   }
 
   render() {
     return (
       <div>
-        <ReactModal isOpen={this.state.isModalOpen} contentLabel="Minimal Modal Example" style={this.modalStyles}>
+        <ReactModal isOpen={this.props.isOpen} contentLabel="Minimal Modal Example" style={this.modalStyles}>
           
           <form onSubmit={(e) => this.saveCard(e)}>
             <div className="form-group">
@@ -75,7 +65,7 @@ export default class Modal extends Component {
             
             <div className="form-group">
               <label>Select Item</label>
-              <select ref={(input) => this.selectItem = input} className="form-control" name="" id="">
+              <select ref={(input) => this.selectItem = input} className="form-control">
                 <option value="item1">Item 1</option>
                 <option value="item2">Item 2</option>
                 <option value="item3">Item 3</option>
@@ -88,11 +78,7 @@ export default class Modal extends Component {
           </form> 
 
           <button 
-            className="pull-right btn btn-success" onClick={() => {
-            this.props.triggerModal(false);
-            this.setState({isModalOpen: false});
-          }}>Close</button>
-
+            className="pull-right btn btn-success" onClick={() => this.props.triggerModal(false)}>Close</button>
         </ReactModal>
       </div>
     );

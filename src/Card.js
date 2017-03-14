@@ -45,10 +45,7 @@ class Card extends Component {
         </div>
 
         <div>
-          {
-            this.state.showModal && 
-            <Modal isOpen={this.state.showModal} triggerModal={this.triggerModal} updateCard={this.updateCard}/>
-          }
+          <Modal isOpen={this.state.showModal} triggerModal={this.triggerModal} updateCard={this.updateCard}/>
         </div>
 
       </div>
