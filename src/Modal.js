@@ -1,38 +1,12 @@
 import React, { Component } from 'react';
 import ReactModal from'react-modal';
+import './Modal.css';
 
 export default class Modal extends Component {
 
   constructor(props) {
     super(props);
     this.saveCard = this.saveCard.bind(this);
-  }
-
-  get modalStyles() {
-    return {
-      overlay: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.9)'
-      },
-      content: {
-        position: 'absolute',
-        top: '30%',
-        left: '30%',
-        right: '30%',
-        bottom: 'auto',
-        border: '1px solid #ccc',
-        background: '#fff',
-        overflow: 'auto',
-        WebkitOverflowScrolling: 'touch',
-        borderRadius: '4px',
-        outline: 'none',
-        padding: '20px'
-      }
-    }
   }
   
   saveCard(e) {
@@ -50,7 +24,7 @@ export default class Modal extends Component {
   render() {
     return (
       <div>
-        <ReactModal isOpen={this.props.isOpen} contentLabel="Minimal Modal Example" style={this.modalStyles}>
+        <ReactModal isOpen={this.props.isOpen} contentLabel="Minimal Modal Example" className="content" overlayClassName="overlay">
           
           <form onSubmit={(e) => this.saveCard(e)}>
             <div className="form-group">
